@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h> //标准库函数头文件，调用随机函数rand
+#include <time.h>
+int main()
+{
+    srand(time(NULL)); //使用当前时间进行随机数发生器的初始化,NULL用来初始化time()中保存的历史时间
+    int i,j,t;
+	int a[10];//定义一个整型数组，数组名为a,此数组有10个整型元素
+	printf("随机生成10个数:\n");
+    for (i=0;i<10;i++)
+	{	
+		a[i]=rand()%101;//取100以内的随机数
+		printf("%d\n",a[i]);
+	}
+	//从小到大排序
+        for (i=0;i<9;i++)
+			for(j=i+1;j<10;j++)
+				if(a[i]>a[j])
+				{
+					t=a[i];
+					a[i]=a[j];
+					a[j]=t;
+				}
+printf("\n从小到大输出:\n");
+for (i=0;i<10;i++)
+printf("%d\n",a[i]);
+printf("\n");
+}
